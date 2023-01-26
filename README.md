@@ -1,6 +1,6 @@
 # amazon_clone_with_node_js
 
-A new Flutter project.
+An Amazon clone app using Flutter SDK with server side using node.js
 
 ## Getting Started
 
