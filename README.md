@@ -1,6 +1,6 @@
 # amazon_clone_with_node_js
 
-An Amazon clone app using Flutter SDK with server side using node.js
+An Amazon clone app using Flutter SDK with server side using node.js with MongoDB
 
 ## How to create MongoDB
 1. Go to MongoDB homepage (https://www.mongodb.com)
