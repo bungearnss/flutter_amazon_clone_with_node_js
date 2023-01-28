@@ -30,6 +30,12 @@ An Amazon clone app using Flutter SDK with server side using node.js with MongoD
 4. Go to your MongoDB Homepage,in collections section you can check a request data and a response data from postman request
 ![postman test api in mongodb2](https://user-images.githubusercontent.com/66944039/215254328-21ecfaeb-2f52-47ac-905f-3a9ce2bb67a7.png)
 
+## How to find ip address for connect your emulator (In this project show in window version)
+1. Open you command line terminal by type "cmd" in search bottom bar
+2. Type "ipconfig" and press enter
+3. It's will show all your connection, then you can use the ip address from IPv4 Address section.
+![ipv4 address](https://user-images.githubusercontent.com/66944039/215255667-092eca1e-b5e3-4d61-be77-b731638e260f.jpg)
+
 
 ## Getting Started
 
