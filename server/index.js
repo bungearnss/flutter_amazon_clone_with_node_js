@@ -8,6 +8,7 @@ const app = express();
 const DB = "mongodb+srv://mongodb:Password@cluster0.j4emwd2.mongodb.net/?retryWrites=true&w=majority";
 
 // middleware
+app.use(express.json());
 app.use(authRouter);
 
 app.listen(PORT, "0.0.0.0", () => {
