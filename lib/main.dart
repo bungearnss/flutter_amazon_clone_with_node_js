@@ -1,17 +1,30 @@
-import 'package:amazon_clone_with_node_js/router.dart';
-import 'package:amazon_clone_with_node_js/src/features/auth/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import './src/utils/constants/app_color.dart';
+import './src/providers/user_provider.dart';
+import './router.dart';
+import './src/features/auth/screens/auth_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => UserProvider(),
+      ),
+    ],
+    child: const MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

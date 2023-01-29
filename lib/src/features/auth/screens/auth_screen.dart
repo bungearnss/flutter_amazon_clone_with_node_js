@@ -37,13 +37,13 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
-  // void signInUser() {
-  //   authService.signInUser(
-  //     context: context,
-  //     email: _emailController.text,
-  //     password: _passwordController.text,
-  //   );
-  // }
+  void signInUser() {
+    authService.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,36 +142,36 @@ class _AuthScreenState extends State<AuthScreen> {
                   },
                 ),
               ),
-              // if (_auth == Auth.signin)
-              //   Container(
-              //     padding: const EdgeInsets.all(8),
-              //     color: AppColor.backgroundColor,
-              //     child: Form(
-              //       key: _signInFormKey,
-              //       child: Column(
-              //         children: [
-              //           CustomTextField(
-              //             controller: _emailController,
-              //             hintText: 'Email',
-              //           ),
-              //           const SizedBox(height: 10),
-              //           CustomTextField(
-              //             controller: _passwordController,
-              //             hintText: 'Password',
-              //           ),
-              //           const SizedBox(height: 10),
-              //           CustomButton(
-              //             text: 'Sign In',
-              //             onTap: () {
-              //               if (_signInFormKey.currentState!.validate()) {
-              //                 signInUser();
-              //               }
-              //             },
-              //           )
-              //         ],
-              //       ),
-              //     ),
-              //   ),
+              if (_auth == Auth.signin)
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: AppColor.backgroundColor,
+                  child: Form(
+                    key: _signInFormKey,
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          controller: _emailController,
+                          hintText: 'Email',
+                        ),
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          controller: _passwordController,
+                          hintText: 'Password',
+                        ),
+                        const SizedBox(height: 10),
+                        CustomButton(
+                          text: 'Sign In',
+                          onTap: () {
+                            if (_signInFormKey.currentState!.validate()) {
+                              signInUser();
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
