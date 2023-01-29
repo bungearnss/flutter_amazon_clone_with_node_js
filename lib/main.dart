@@ -5,6 +5,8 @@ import './src/utils/constants/app_color.dart';
 import './src/providers/user_provider.dart';
 import './router.dart';
 import './src/features/auth/screens/auth_screen.dart';
+import './src/features/home/screens/home_screen.dart';
+import './src/features/auth/services/auth_service.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -25,6 +27,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    authService.getUserData(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,7 +53,9 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const AuthScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? const HomeScreen()
+          : const AuthScreen(),
     );
   }
 }
