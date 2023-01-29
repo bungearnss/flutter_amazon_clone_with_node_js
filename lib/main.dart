@@ -5,7 +5,7 @@ import './src/utils/constants/app_color.dart';
 import './src/providers/user_provider.dart';
 import './router.dart';
 import './src/features/auth/screens/auth_screen.dart';
-import './src/features/home/screens/home_screen.dart';
+import './src/widgets/bottom_bar.dart';
 import './src/features/auth/services/auth_service.dart';
 
 void main() {
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const HomeScreen()
+          ? const BottomBar()
           : const AuthScreen(),
     );
   }

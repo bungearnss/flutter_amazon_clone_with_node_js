@@ -9,7 +9,7 @@ import '../../../models/user.dart';
 import '../../../utils/error_handling.dart';
 import '../../../utils/error_util.dart';
 import '../../../utils/constants/http_constant.dart';
-import '../../home/screens/home_screen.dart';
+import '../../../widgets/bottom_bar.dart';
 
 import '../../../providers/user_provider.dart';
 
@@ -78,16 +78,12 @@ class AuthService {
         context: context,
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-          // Navigator.pushNamedAndRemoveUntil(
-          //   context,
-          //   BottomBar.routeName,
-          //   (route) => false,
-          // );
+
+          Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomeScreen.routeName,
+            BottomBar.routeName,
             (route) => false,
           );
         },
