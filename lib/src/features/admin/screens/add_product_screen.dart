@@ -9,6 +9,8 @@ import '../../../utils/constants/app_color.dart';
 import '../../../features/auth/widgets/custom_button.dart';
 import '../../../features/auth/widgets/custom_textfield.dart';
 
+import '../services/admin_services.dart';
+
 class AddProductScreen extends StatefulWidget {
   static const String routeName = '/add-product';
   const AddProductScreen({super.key});
@@ -22,6 +24,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController priceController = TextEditingController();
   final TextEditingController quantityController = TextEditingController();
+  final AdminServices adminServices = AdminServices();
   List<File> images = [];
   String category = 'Mobiles';
   final _addProductFormKey = GlobalKey<FormState>();
@@ -42,6 +45,20 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Books',
     'Fashion'
   ];
+
+  void sellProduct() {
+    if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
+      adminServices.sellProduct(
+        context: context,
+        name: productNameController.text,
+        description: descriptionController.text,
+        price: double.parse(priceController.text),
+        quantity: double.parse(quantityController.text),
+        category: category,
+        images: images,
+      );
+    }
+  }
 
   void selectImages() async {
     var res = await pickImages();
@@ -171,7 +188,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 const SizedBox(height: 10),
                 CustomButton(
                   text: 'Sell',
-                  onTap: () {},
+                  onTap: sellProduct,
                 ),
                 const SizedBox(height: 20),
               ],
