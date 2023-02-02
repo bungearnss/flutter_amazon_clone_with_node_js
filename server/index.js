@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const authRouter = require("./routers/auth");
+const adminRouter = require("./routers/admin");
 
 // INIT
 const PORT = 3000;
@@ -10,6 +11,7 @@ const DB = "mongodb+srv://mongodb:Password@cluster0.j4emwd2.mongodb.net/?retryWr
 // middleware
 app.use(express.json());
 app.use(authRouter);
+app.use(adminRouter);
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`connected at port ${PORT} hello`);
