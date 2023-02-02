@@ -36,6 +36,18 @@ An Amazon clone app using Flutter SDK with server side using node.js with MongoD
 3. It's will show all your connection, then you can use the ip address from IPv4 Address section.
 ![ipv4 address](https://user-images.githubusercontent.com/66944039/215255667-092eca1e-b5e3-4d61-be77-b731638e260f.jpg)
 
+## How to use Cloudinary Management console to store your image
+1. Go to MongoDB homepage (https://console.cloudinary.com) and sign in to homepage or if you doesn't have an account then sign up with Free Version.
+2. In navigator tab in the left hand side, go to Dashboard Section and copy your Cloud Name.
+![1](https://user-images.githubusercontent.com/66944039/216362970-af41813c-e7f8-4ab8-bfb2-5e4b9c38212e.jpg)
+3. Go to setting page by click setting icon in the bottom left hand side. 
+4. In setting page, go to upload section then scroll down, you will see the Upload presets. Delete All assigned mode and click on "Unsigned uploading enable" for generate new one to use.
+![2](https://user-images.githubusercontent.com/66944039/216363928-e0de81ea-d4ed-4538-b6be-5425638a9ec6.jpg)
+5. After generated, copy Name.
+6. When you call Cloudinary service in Flutter, you will need to enter the _cloudName from step 2 and the _uploadPreset from step 5 to identify your cloud address in order for it to work.
+7. After you save the image to Cloudinary, you will get the following result.
+![3](https://user-images.githubusercontent.com/66944039/216365301-d78295d1-5470-4f54-82e2-340759120459.jpg)
+
 
 ## Getting Started
 
