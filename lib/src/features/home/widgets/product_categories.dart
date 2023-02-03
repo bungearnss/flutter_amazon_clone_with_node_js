@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/app_image.dart';
+import '../screens/category_screen.dart';
 
 class ProductCategories extends StatelessWidget {
   const ProductCategories({super.key});
+
+  void navigateToCategoryPage(BuildContext context, String category) {
+    Navigator.pushNamed(context, CategoryScreen.routeName, arguments: category);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +20,10 @@ class ProductCategories extends StatelessWidget {
         itemExtent: 75,
         itemBuilder: (context, index) {
           return GestureDetector(
-            // onTap: () => navigateToCategoryPage(
-            //   context,
-            //   AppImage.categoryImages[index]['title']!,
-            // ),
+            onTap: () => navigateToCategoryPage(
+              context,
+              AppImage.categoryImages[index]['title']!,
+            ),
             child: Column(
               children: [
                 Container(
