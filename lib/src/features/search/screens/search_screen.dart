@@ -1,27 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../providers/user_provider.dart';
+import '../../../models/product.dart';
 import '../../../utils/constants/app_color.dart';
+import '../services/search_service.dart';
+import '../widgets/searched_product.dart';
+import '../../home/widgets/address_section.dart';
 
-import '../widgets/address_section.dart';
-import '../widgets/product_categories.dart';
-import '../widgets/carousel_image.dart';
-import '../widgets/today_deal.dart';
-
-import '../../search/screens/search_screen.dart';
-
-class HomeScreen extends StatefulWidget {
-  static const String routeName = "/home";
-  const HomeScreen({super.key});
+class SearchScreen extends StatefulWidget {
+  static const String routeName = '/search-screen';
+  final String searchQuery;
+  const SearchScreen({super.key, required this.searchQuery});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  void navigateToSearchScreen(String query) {
-    Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+class _SearchScreenState extends State<SearchScreen> {
+  List<Product>? products;
+  final SearchServices searchServices = SearchServices();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchSearchedProduct();
+  }
+
+  fetchSearchedProduct() async {
+    products = await searchServices.fetchSearchedProduct(
+        context: context, searchQuery: widget.searchQuery);
+    setState(() {});
   }
 
   @override
@@ -46,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
                     child: TextFormField(
-                      onFieldSubmitted: navigateToSearchScreen,
+                      // onFieldSubmitted: navigateToSearchScreen,
                       decoration: InputDecoration(
                         prefixIcon: InkWell(
                           onTap: () {},
@@ -99,18 +106,33 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            AddressSection(),
-            SizedBox(height: 10),
-            ProductCategories(),
-            SizedBox(height: 10),
-            CarouselImage(),
-            // TodayDeal(),
-          ],
-        ),
-      ),
+      body: products == null
+          ? const Center(child: CircularProgressIndicator())
+          : Column(
+              children: [
+                const AddressSection(),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: products!.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          // Navigator.pushNamed(
+                          //   context,
+                          //   ProductDetailScreen.routeName,
+                          //   arguments: products![index],
+                          // );
+                        },
+                        child: SearchedProduct(
+                          product: products![index],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }

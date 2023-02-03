@@ -5,6 +5,7 @@ import './src/features/home/screens/home_screen.dart';
 import './src/widgets/bottom_bar.dart';
 import './src/features/admin/screens/add_product_screen.dart';
 import './src/features/home/screens/category_screen.dart';
+import './src/features/search/screens/search_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -33,6 +34,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => CategoryScreen(category: category),
+      );
+    case SearchScreen.routeName:
+      var searchQuery = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => SearchScreen(searchQuery: searchQuery),
       );
     default:
       return MaterialPageRoute(
