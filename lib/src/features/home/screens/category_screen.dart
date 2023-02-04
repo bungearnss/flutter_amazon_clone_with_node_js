@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../models/product.dart';
 import '../../../utils/constants/app_color.dart';
 import '../services/home_services.dart';
+import '../../product_detail/screens/product_detail_screen.dart';
 
 class CategoryScreen extends StatefulWidget {
   static const String routeName = '/category';
@@ -81,11 +82,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       final product = productList![index];
                       return GestureDetector(
                         onTap: () {
-                          // Navigator.pushNamed(
-                          //   context,
-                          //   ProductDetailScreen.routeName,
-                          //   arguments: product,
-                          // );
+                          Navigator.pushNamed(
+                            context,
+                            ProductDetailScreen.routeName,
+                            arguments: product,
+                          );
                         },
                         child: Column(
                           children: [

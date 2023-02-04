@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import './src/models/product.dart';
+
 import './src/features/auth/screens/auth_screen.dart';
 import './src/features/home/screens/home_screen.dart';
 import './src/widgets/bottom_bar.dart';
 import './src/features/admin/screens/add_product_screen.dart';
 import './src/features/home/screens/category_screen.dart';
 import './src/features/search/screens/search_screen.dart';
+import './src/features/product_detail/screens/product_detail_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -40,6 +43,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => SearchScreen(searchQuery: searchQuery),
+      );
+    case ProductDetailScreen.routeName:
+      var product = routeSettings.arguments as Product;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => ProductDetailScreen(product: product),
       );
     default:
       return MaterialPageRoute(
