@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ProductCategories(),
             SizedBox(height: 10),
             CarouselImage(),
-            // TodayDeal(),
+            TodayDeal(),
           ],
         ),
       ),
