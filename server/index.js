@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const authRouter = require("./routers/auth");
 const adminRouter = require("./routers/admin");
 const productRouter = require("./routers/product");
+const userRouter = require("./routers/user");
 
 // INIT
 const PORT = 3000;
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
 app.use(productRouter);
+app.use(userRouter);
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`connected at port ${PORT} hello`);
