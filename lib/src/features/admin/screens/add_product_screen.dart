@@ -6,7 +6,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../../utils/admin_util.dart';
 import '../../../utils/constants/app_color.dart';
-import '../../../features/auth/widgets/custom_button.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../features/auth/widgets/custom_textfield.dart';
 
 import '../services/admin_services.dart';

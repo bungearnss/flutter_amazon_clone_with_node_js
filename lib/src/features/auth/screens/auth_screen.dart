@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/constants/app_color.dart';
 import '../widgets/custom_textfield.dart';
-import '../widgets/custom_button.dart';
+import '../../../widgets/custom_button.dart';
 import '../services/auth_service.dart';
 
 enum Auth {

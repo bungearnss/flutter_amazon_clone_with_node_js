@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/product.dart';
-import './stars.dart';
+import '../../../widgets/stars.dart';
 
 class SearchedProduct extends StatelessWidget {
   final Product product;
