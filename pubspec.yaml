@@ -42,6 +42,7 @@ dependencies:
   cloudinary_public: ^0.20.0
   flutter_rating_bar: ^4.0.1
   flutter_bloc: ^8.1.1
+  pay: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,13 +68,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/amazon_in.png
-    - assets/images/appliances.jpeg
-    - assets/images/books.jpeg
-    - assets/images/electronics.jpeg
-    - assets/images/essentials.jpeg
-    - assets/images/fashion.jpeg
-    - assets/images/mobiles.jpeg
+    - assets/images/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
