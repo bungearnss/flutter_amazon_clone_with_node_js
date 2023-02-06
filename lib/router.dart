@@ -9,6 +9,7 @@ import './src/features/admin/screens/add_product_screen.dart';
 import './src/features/home/screens/category_screen.dart';
 import './src/features/search/screens/search_screen.dart';
 import './src/features/product_detail/screens/product_detail_screen.dart';
+import './src/features/address/screens/address_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -49,6 +50,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ProductDetailScreen(product: product),
+      );
+    case AddressScreen.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddressScreen(totalAmount: totalAmount),
       );
     default:
       return MaterialPageRoute(
