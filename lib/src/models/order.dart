@@ -25,7 +25,7 @@ class Order {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      // 'products': products.map((x) => x.toMap()).toList(),
+      'products': products.map((x) => x.toMap()).toList(),
       'quantity': quantity,
       'address': address,
       'userId': userId,
