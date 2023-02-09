@@ -2,6 +2,11 @@
 
 An Amazon clone app using Flutter SDK with server side using node.js with MongoDB
 
+# UI Design
+![app1](https://user-images.githubusercontent.com/66944039/217876526-3af2ce0c-24f9-42ee-a564-f5f953f3cf4b.png)
+![app2](https://user-images.githubusercontent.com/66944039/217876537-8e12d111-6294-4ac8-a9b3-b5b2e0eeeb6f.png)
+![app3](https://user-images.githubusercontent.com/66944039/217876565-deb26604-0de9-4fb2-ab44-96d763b781a8.png)
+
 ## How to create MongoDB
 1. Go to MongoDB homepage (https://www.mongodb.com)
 2. Sign In to homepage or if you doesn't have an account then sign up with Free Version.
