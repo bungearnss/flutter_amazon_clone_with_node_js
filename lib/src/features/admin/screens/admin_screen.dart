@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/constants/app_color.dart';
 
-import './AnalyticScreen.dart';
+import 'analytic_screen.dart';
 import './order_screen.dart';
 import './post_screen.dart';
 
