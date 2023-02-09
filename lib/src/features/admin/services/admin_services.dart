@@ -12,6 +12,7 @@ import '../../../utils/error_handling.dart';
 import '../../../utils/constants/http_constant.dart';
 import '../../../models/product.dart';
 import '../../../models/order.dart';
+import '../models/sale.dart';
 
 class AdminServices {
   void sellProduct({
@@ -189,5 +190,40 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+  }
+
+  Future<Map<String, dynamic>> getEarnings(BuildContext context) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<Sale> sales = [];
+    int totalEarning = 0;
+    try {
+      http.Response res =
+          await http.get(Uri.parse('$uri/admin/analytics'), headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'x-auth-token': userProvider.user.token,
+      });
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          var response = jsonDecode(res.body);
+          totalEarning = response['totalEarnings'];
+          sales = [
+            Sale('Mobiles', response['mobileEarnings']),
+            Sale('Essentials', response['essentialEarnings']),
+            Sale('Books', response['booksEarnings']),
+            Sale('Appliances', response['applianceEarnings']),
+            Sale('Fashion', response['fashionEarnings']),
+          ];
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return {
+      'sales': sales,
+      'totalEarnings': totalEarning,
+    };
   }
 }
