@@ -8,7 +8,7 @@ const userRouter = require("./routers/user");
 // INIT
 const PORT = 3000;
 const app = express();
-const DB = "mongodb+srv://mongodb:Password@cluster0.j4emwd2.mongodb.net/?retryWrites=true&w=majority";
+const DB = "your_db_url";
 
 // middleware
 app.use(express.json());
