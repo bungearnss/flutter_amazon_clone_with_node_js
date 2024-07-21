@@ -45,7 +45,7 @@ An Amazon clone app using Flutter SDK with server side using node.js with MongoD
 
 
 ## How to use Cloudinary Management console to store your image
-1. Go to MongoDB homepage (https://console.cloudinary.com) and sign in to homepage or if you doesn't have an account then sign up with Free Version.
+1. Go to Cloudinary homepage (https://console.cloudinary.com) and sign in to homepage or if you doesn't have an account then sign up with Free Version.
 2. In navigator tab in the left hand side, go to Dashboard Section and copy your Cloud Name.
 
 ![1](https://user-images.githubusercontent.com/66944039/216362970-af41813c-e7f8-4ab8-bfb2-5e4b9c38212e.jpg)
